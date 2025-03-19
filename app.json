@@ -18,7 +18,7 @@
       "supportsTablet": true
     },
     "android": {
-      "googleServicesFile": "android/app/google-services.json",
+      "googleServicesFile": "app/google-services.json",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
@@ -36,7 +36,7 @@
       "expo-router"
     ],
     "cli": {
-      "appVersionSource": "local"
+      "appVersionSource": "remote"
     },
     "extra": {
       "router": {
