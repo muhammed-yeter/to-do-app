@@ -115,7 +115,7 @@ const Tasks = () => {
             }
         }
     }, [isFocused]);
-    // Boş liste görseli
+    
     const emptyTaskList = require('../assets/images/empty-list.png');
     return (
         <SafeAreaView style={[{ flex: 1 }, { backgroundColor: theme.bgColor3.backgroundColor }]}>
@@ -155,7 +155,6 @@ const Tasks = () => {
                                         },
                                     }}
                                     markingType={'multi-dot'}
-
                                     onDayPress={(day) => {
                                         setSelectedDate(day.dateString);
                                         loadTasks(day.dateString);

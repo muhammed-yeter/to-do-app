@@ -28,54 +28,6 @@ import { Shadow } from 'react-native-shadow-2';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import LoadingScreen from '../../components/LoadingScreen';
-import * as Notifications from 'expo-notifications';
-
-const combineDateTime = (date, time) => {
-    const [hour, minute] = time.split(":").map(Number); // PickTime'den gelen saat ve dakika
-    const [year, month, day] = date.split("-").map(Number); // Calendar'dan gelen tarih
-    return new Date(year, month - 1, day, hour, minute); // Yeni Date objesi
-};
-
-const setAlarm = async (taskDate, taskTime, taskName) => {
-    const fullDate = combineDateTime(taskDate, taskTime);
-    console.log("Full Date:", fullDate);
-
-    const timestamp = fullDate.getTime(); // Milisaniyeye çevir
-    console.log("Timestamp:", timestamp);
-
-    // Expo'nun yeni gereksinimine uygun format
-    await Notifications.scheduleNotificationAsync({
-        content: {
-            title: "Görev Hatırlatma",
-            body: `${taskName} görev zamanı geldi!`,
-            sound: true,
-        },
-        trigger: {
-            type: 'date', // `type` alanını belirtmek zorundayız
-            timestamp: Date.now() + 5000, // Milisaniye cinsinden zaman
-        },
-    });
-};
-
-const testAlarm = async () => {
-    await Notifications.scheduleNotificationAsync({
-        content: {
-            title: "Test Bildirimi",
-            body: "Bu bir test mesajıdır!",
-            sound: true,
-        },
-        trigger: {
-            seconds: 5, // Şu andan itibaren 5 saniye sonra
-        },
-    });
-
-}
-
-
-
-// setAlarm fonksiyonunu bu şekilde çağırın:
-
-
 const Create = () => {
 
     const getPushToken = async () => {
@@ -114,18 +66,6 @@ const Create = () => {
         setTaskName("");
         setTaskDescription("");
         setTaskDate(date);
-
-        const requestPermissions = async () => {
-            const { status } = await Notifications.getPermissionsAsync();
-            if (status !== 'granted') {
-                const { status: newStatus } = await Notifications.requestPermissionsAsync();
-                if (newStatus !== 'granted') {
-                    alert('Bildirim izni verilmedi!');
-                }
-            }
-        };
-
-        requestPermissions();
     }, [isFocused]);
 
     const selectOneItem = (priority) => {
