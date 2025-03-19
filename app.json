@@ -1,11 +1,13 @@
 {
   "expo": {
-    "name": "to-do-app",
-    "slug": "to-do-app",
+    "name": "lyncia",
+    "slug": "lyncia",
+    "scheme": "lyncia",
+    "owner": "muhammedyeter",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
       "image": "./assets/splash-icon.png",
@@ -16,13 +18,33 @@
       "supportsTablet": true
     },
     "android": {
+      "googleServicesFile": "android/app/google-services.json",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.todoapp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "expo-notifications": {
+      "icon": "./assets/icon.png",
+      "color": "#ffffff"
+    },
+    "plugins": [
+      "expo-router"
+    ],
+    "cli": {
+      "appVersionSource": "local"
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "922b7a6a-5bbf-496b-bb09-6685460aaf46"
+      }
     }
   }
 }
