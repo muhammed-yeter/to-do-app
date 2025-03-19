@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "512008463355",
+    "project_id": "lyncia-43c9a",
+    "storage_bucket": "lyncia-43c9a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:512008463355:android:1fc47ba3d6d765c08ae15e",
+        "android_client_info": {
+          "package_name": "com.lyncia"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZZhdQrLKLUfnpI2KkbsOt26JRkA1QTR0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
