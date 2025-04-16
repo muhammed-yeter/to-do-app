@@ -82,7 +82,7 @@ const ViewTask = () => {
                                         calendarBackground: theme.bgColor1.backgroundColor,
                                         textSectionTitleColor: theme.calendarMonth.color,
                                         selectedDayTextColor: "#fff",
-                                        todayTextColor: '#FF4949',
+                                        todayTextColor: '#EB5757',
                                         dayTextColor: theme.primaryText.color,
                                         textDisabledColor: '#666666',
                                         arrowColor: '#C26061',

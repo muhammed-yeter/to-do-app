@@ -19,8 +19,8 @@ const SoonMenuItem = ({ taskName, taskDescription, taskTime, taskPriority, isEdi
   // Öncelikler ve başlıklar
   const taskSettings = {
     routine: { color: theme.priorityColors.routine.backgroundColor, header: 'Günlük Rutin' },
-    primary: { color: theme.priorityColors.important.backgroundColor, header: 'Öncelikli' },
-    important: { color: theme.priorityColors.primary.backgroundColor, header: 'Önemli ' },
+    primary: { color: theme.priorityColors.primary.backgroundColor, header: 'Öncelikli' },
+    important: { color: theme.priorityColors.important.backgroundColor, header: 'Önemli ' },
   };
 
   const {
@@ -31,12 +31,7 @@ const SoonMenuItem = ({ taskName, taskDescription, taskTime, taskPriority, isEdi
   const longTextDetector = (text, maxLength) => (text.length > maxLength ? `${text.substring(0, maxLength)}...` : text);
 
   const editPageHandler = () => {
-    if (!taskDate || taskIndex === undefined) {
-      console.error("Düzenleme işlemi için 'taskDate' ve 'taskIndex' gerekli.");
-      return;
-    }
     router.push({
-
       pathname: isEnabled ? "tasks/edit" : "tasks/view",
       params: { index: taskIndex, date: taskDate, taskObject: JSON.stringify(task) }
     });
@@ -52,7 +47,14 @@ const SoonMenuItem = ({ taskName, taskDescription, taskTime, taskPriority, isEdi
         width: "100%", borderRadius: 10,
       }}
     >
-      <DynamicMenuItem style={[styles.soonMenuItem, { backgroundColor: theme.bgColor1.backgroundColor }]}>
+      <DynamicMenuItem style={[styles.soonMenuItem, { backgroundColor: theme.bgColor1.backgroundColor }]} onPress={
+        () => {
+          router.push({
+            pathname: "tasks/view",
+            params: { index: taskIndex, date: taskDate, taskObject: JSON.stringify(task) }
+          })
+        }
+      }>
         <View style={[styles.round, { borderColor: theme.soonMenuItemRound?.borderColor || '#ccc' }]}></View>
         <View style={styles.details}>
           <Text style={[styles.fontHandler, styles.taskHeader, { color: theme.primaryText.color }]}>
@@ -95,7 +97,7 @@ const SoonMenuItem = ({ taskName, taskDescription, taskTime, taskPriority, isEdi
               justifyContent: "center",
               alignItems: "center"
             }}>
-            <MaterialIcons name="alarm-on" size={70} color="#7DFFB680" />
+            <MaterialIcons name="alarm-on" size={70} color="#1ABC9C80" />
           </View>
         )
       }

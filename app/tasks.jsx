@@ -348,7 +348,7 @@ const styles = StyleSheet.create({
     button: {
         fontSize: 24,
         textDecorationLine: 'underline',
-        color: '#FF4949',
+        color: '#EB5757',
     },
     orderDropdown: {
         width: wp(40),

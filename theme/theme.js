@@ -31,7 +31,7 @@ const theme = {
 
         // Pasif görev kartları
         bgColor4: {
-            backgroundColor: "#C2C0E075" // Şeffaf pastel gri-mor
+            backgroundColor: "#D7D5F250" // Şeffaf pastel gri-mor
         },
 
         soonMenuItemRound: {
@@ -49,11 +49,11 @@ const theme = {
         priorityColors: {
             routine: {
                 backgroundColor: "#6FCF97",
-                textColor: "#1E1E2F"
+                textColor: "#232946"
             },
             important: {
                 backgroundColor: "#F2C94C",
-                textColor: "#1E1E2F"
+                textColor: "#232946"
             },
             primary: {
                 backgroundColor: "#EB5757",
@@ -91,8 +91,7 @@ const theme = {
         },
 
         bgColor4: {
-            backgroundColor: "rgba(111, 207, 151, 0.2)"
-            // backgroundColor: "#44415F75",
+            backgroundColor: "#2D2B3F50",
         },
 
         soonMenuItemRound: {
@@ -115,7 +114,7 @@ const theme = {
             },
             important: {
                 backgroundColor: "#FFD36B",
-                textColor: "#1E1E2F" // Mor temayla uyumlu koyu yazı
+                textColor: "#EB5757" // Mor temayla uyumlu koyu yazı
             },
             primary: {
                 backgroundColor: "#FF7676",

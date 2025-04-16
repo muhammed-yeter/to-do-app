@@ -161,7 +161,7 @@ const Create = () => {
                         {/* Buton */}
                         <View style={{ display: "flex", gap: wp("2") }}>
                             {!continueToSaving && (
-                                <Text style={{ fontSize: wp("4"), color: "#FF4949" }}>
+                                <Text style={{ fontSize: wp("4"), color: "#EB5757" }}>
                                     * Lütfen geçerli bir saat seçiniz.
                                 </Text>
                             )}
@@ -169,8 +169,10 @@ const Create = () => {
                             <DynamicCreateButton style={[styles.createTask, { backgroundColor: continueToSaving ? theme.interactItem.backgroundColor : "#968CFF90" }]}
                                 onPress={async () => {
                                     setIsLoading(true);
-                                    await updateTask();
+                                    packData();
+                                    await saveTaskData(taskDate, taskDetails)
                                     setIsLoading(false);
+                                    router.push('/tasks');
                                 }}>
                                 <Text style={{ fontSize: wp("4"), color: '#fff' }}>Görev Oluştur</Text>
                             </DynamicCreateButton>

@@ -14,8 +14,8 @@ export default function Header() {
   return (
     <View style={styles.headerContainer}>
       <View style={styles.header}>
-        <Ionicons name="water-outline" size={40} color={theme.primaryText.color} />
-        <Text style={[styles.headerText, { color: theme.primaryText.color }]}>SampleIcon</Text>
+        <Ionicons name="water-outline" size={40} color={"#7547E3"} />
+        <Text style={[styles.headerText, { color: "#7547E3", fontSize: 24 }]}>Lyncia</Text>
       </View>
       <View>
         <PlatformPressable

@@ -1,7 +1,7 @@
 import {
     StyleSheet,
     View,
-    Image,
+    Text,
     ScrollView,
 } from 'react-native';
 import {
@@ -12,6 +12,7 @@ import SettingsMenuItem from '../components/SettingsMenuItem';
 import React, { useContext } from 'react';
 import themeContext from '../theme/themeContext';
 
+import Ionicons from '@expo/vector-icons/Ionicons';
 import SettingsHeader from "../components/SettingsHeader";
 
 const logo = require("../assets/images/logo.png");
@@ -25,7 +26,10 @@ const Settings = () => {
                 <SettingsHeader getBackTo={"/"} header={"Seçenekler"} />
                 <View style={styles.altContainer}>
                     <View style={styles.content}>
-                        <Image source={logo} style={{ maxWidth: 200, maxHeight: 70 }} />
+                        <View style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+                            <Ionicons name="water-outline" size={100} color={"#7547E3"} />
+                            <Text style={[styles.headerText, { color: "#7547E3", fontSize: 40 }]}>Lyncia</Text>
+                        </View>
                         <View style={styles.menu}>
                             <SettingsMenuItem
                                 header="Temayı Değiştir"

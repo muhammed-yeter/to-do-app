@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     button: {
         fontSize: wp("3.5"),
         textDecorationLine: 'underline',
-        color: '#FF4949',
+        color: '#EB5757',
     },
     textContent: {
         fontSize: wp("3.5"),

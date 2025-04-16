@@ -163,7 +163,7 @@ const Edit = () => {
                         {/* Buton */}
                         <View style={{ display: "flex", gap: wp("2") }}>
                             {!continueToSaving && (
-                                <Text style={{ fontSize: wp("4"), color: "#FF4949" }}>
+                                <Text style={{ fontSize: wp("4"), color: "#EB5757" }}>
                                     * Lütfen geçerli bir saat seçiniz.
                                 </Text>
                             )}
