@@ -59,7 +59,7 @@ const Tasks = () => {
             Object.keys(tasksList).forEach(date => {
                 const dayTasks = tasksList[date];
 
-                if (Array.isArray(dayTasks)) { // Sadece dizi olanları işleme al
+                if (Array.isArray(dayTasks)) { // dizi ise oluşturur
                     const dots = [];
 
                     if (dayTasks.some(task => task.taskPriority === "routine")) {
@@ -74,7 +74,7 @@ const Tasks = () => {
 
                     if (dots.length > 0) {
                         newMarkedDates[date] = {
-                            dots: dots.slice(0, 3), // En fazla 3 nokta göster
+                            dots: dots.slice(0, 3), // en fazla 3 nokta göstermek için 
                         };
                     }
                 } else {
@@ -143,7 +143,7 @@ const Tasks = () => {
         setTasks(sortedTasks);
     };
 
-    const orderOnFocus = async ()  =>{
+    const orderOnFocus = async () => {
         await orderTasks(orderType)
     }
 
@@ -164,9 +164,11 @@ const Tasks = () => {
         }
     }, [isFocused]);
 
-    useEffect(()=>{
+    useEffect(() => {
         orderOnFocus();
-    }, [isFocused])
+        disableOldTasks();
+        orderTasks(orderType)
+    }, [selectedDate])
 
     const emptyTaskList = require('../assets/images/empty-list.png');
     return (
@@ -174,8 +176,8 @@ const Tasks = () => {
             <NotificationListener
                 onReceived={async () => {
                     setIsLoading(true);
-                    await loadTasks(selectedDate); // Asenkron işlemi çağır
-                    await disableOldTasks(); // Asenkron işlemi çağır
+                    await loadTasks(selectedDate);
+                    await disableOldTasks();
                     setIsLoading(false);
                 }}
             />

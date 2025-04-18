@@ -1,4 +1,3 @@
-// create.jsx
 import {
     SafeAreaView,
     StyleSheet,
@@ -87,7 +86,6 @@ const Create = () => {
 
     const selectOneItem = (priority) => {
         setselectedPriority(priority);
-        taskDetails.taskPriority = priority;
     };
 
     const DynamicCreateButton = continueToSaving ? TouchableOpacity : View;
@@ -130,7 +128,7 @@ const Create = () => {
                         <View style={styles.row}>
                             <Text style={[styles.header, { color: theme.primaryText.color }]}>Görev Saati</Text>
                             <View style={[styles.setTime, { backgroundColor: theme.bgColor1.backgroundColor }]}>
-                                <PickTime onTimeChange={(time) => setTimeout(() => setTaskTime(time), 0)} />
+                                <PickTime defaultValue={taskTime} onTimeChange={(time) => setTimeout(() => setTaskTime(time), 0)} />
                             </View>
                         </View>
 

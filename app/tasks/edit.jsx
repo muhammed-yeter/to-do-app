@@ -1,4 +1,3 @@
-// edit.jsx
 import {
     SafeAreaView,
     StyleSheet,
@@ -40,7 +39,7 @@ const Edit = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        if (isFocused) loadTask();
+        loadTask();
     }, [isFocused]);
 
     useEffect(() => {
@@ -55,14 +54,12 @@ const Edit = () => {
     const loadTask = async () => {
         const tasks = await AsyncStorage.getItem('tasks');
         const tasksList = tasks ? JSON.parse(tasks) : {};
-        const task = tasksList[taskDate]?.[index];
-
-        if (task) {
-            setTaskName(task.taskName);
-            setTaskDescription(task.taskDescription);
-            setselectedPriority(task.taskPriority);
-            setTaskTime(task.taskTime);
-        }
+        const task = tasksList[taskDate][index];
+        setTaskName(task.taskName);
+        setTaskDescription(task.taskDescription);
+        setselectedPriority(task.taskPriority);
+        setTaskTime(task.taskTime);
+        console.log(taskTime)
     };
 
     const updateTask = async () => {
@@ -84,6 +81,7 @@ const Edit = () => {
         router.push('/tasks');
     };
 
+    const selectOneItem = (priority) => setselectedPriority(priority);
 
 
     const DynamicCreateButton = continueToSaving ? TouchableOpacity : View;
@@ -132,7 +130,7 @@ const Edit = () => {
                         <View style={styles.row}>
                             <Text style={[styles.header, { color: theme.primaryText.color }]}>Görev Saati</Text>
                             <View style={[styles.setTime, { backgroundColor: theme.bgColor1.backgroundColor }]}>
-                                <PickTime onTimeChange={(time) => setTimeout(() => setTaskTime(time), 0)} />
+                                <PickTime defaultValue={taskTime} onTimeChange={(time) => setTimeout(() => setTaskTime(time), 0)} />
                             </View>
                         </View>
 

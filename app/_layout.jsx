@@ -6,7 +6,7 @@ import themeContext from "../theme/themeContext";
 import theme from "../theme/theme";
 import LoadingScreen from "../components/LoadingScreen";
 import { useNavigationState } from "@react-navigation/native";
-import { EventRegister } from "react-native-event-listeners"; // EventRegister kullanımı
+import { EventRegister } from "react-native-event-listeners";
 import { startTaskChecker } from '../scripts/checkForNotification';
 import * as Notifications from 'expo-notifications';
 const Layout = () => {
@@ -27,7 +27,7 @@ const Layout = () => {
     const [darkTheme, setDarkTheme] = useState(false);
 
     useEffect(() => {
-        startTaskChecker(); // Görev kontrolü başlatılır
+        startTaskChecker();
         const askNotificationPermission = async () => {
             const { status } = await Notifications.getPermissionsAsync();
             if (status !== 'granted') {
@@ -52,7 +52,7 @@ const Layout = () => {
 
       
     useEffect(() => {
-        // AsyncStorage'den tema ayarlarını yükle
+       
         const loadData = async () => {
             try {
                 const value = await AsyncStorage.getItem("app-theme");
@@ -69,14 +69,14 @@ const Layout = () => {
         };
         loadData();
 
-        // Tema değişikliğini dinleyiciye bağlayın
+       
         const listener = EventRegister.addEventListener("ChangeTheme", (data) => {
-            setDarkTheme(data); // Tema durumunu güncelle
+            setDarkTheme(data);
         });
 
-        // Dinleyiciyi kaldırma
+       
         return () => {
-            EventRegister.removeEventListener(listener); // Dinleyiciyi temizle
+            EventRegister.removeEventListener(listener);
         };
     }, []);
 
@@ -91,7 +91,7 @@ const Layout = () => {
                     tabBarHideOnKeyboard: true,
                 }}
                 tabBar={(props) =>
-                    // Belirli sayfalarda TabBar'ı saklama
+                   
                     outOfSelectionPages.includes(currentPage) ? null : (
                         <TabBar {...props} />
                     )
@@ -118,9 +118,8 @@ const Layout = () => {
     );
 };
 
-// Tema değişikliğini tetikleyen bir yardımcı işlev
 export const toggleTheme = (newTheme) => {
-    EventRegister.emit("ChangeTheme", newTheme); // EventRegister ile tetikleme
+    EventRegister.emit("ChangeTheme", newTheme);
 };
 
 export default Layout;

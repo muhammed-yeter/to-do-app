@@ -16,7 +16,6 @@ const SoonMenuItem = ({ taskName, taskDescription, taskTime, taskPriority, isEdi
   const theme = useContext(themeContext);
   const router = useRouter();
 
-  // Öncelikler ve başlıklar
   const taskSettings = {
     routine: { color: theme.priorityColors.routine.backgroundColor, header: 'Günlük Rutin' },
     primary: { color: theme.priorityColors.primary.backgroundColor, header: 'Öncelikli' },
@@ -25,12 +24,13 @@ const SoonMenuItem = ({ taskName, taskDescription, taskTime, taskPriority, isEdi
 
   const {
     color: activeColor, header: activeHeader } = taskSettings[taskPriority] || { color: '#ccc', header: 'Bilinmeyen' };
-  const DynamicMenuItem = isEditable ? View : TouchableOpacity;
   const DynamicIcon = isEnabled ? FontAwesome5 : MaterialIcons;
 
   const longTextDetector = (text, maxLength) => (text.length > maxLength ? `${text.substring(0, maxLength)}...` : text);
 
   const editPageHandler = () => {
+    console.log("📦 task prop", task);
+
     router.push({
       pathname: isEnabled ? "tasks/edit" : "tasks/view",
       params: { index: taskIndex, date: taskDate, taskObject: JSON.stringify(task) }
@@ -47,14 +47,14 @@ const SoonMenuItem = ({ taskName, taskDescription, taskTime, taskPriority, isEdi
         width: "100%", borderRadius: 10,
       }}
     >
-      <DynamicMenuItem style={[styles.soonMenuItem, { backgroundColor: theme.bgColor1.backgroundColor }]} onPress={
-        () => {
-          router.push({
-            pathname: "tasks/view",
-            params: { index: taskIndex, date: taskDate, taskObject: JSON.stringify(task) }
-          })
-        }
-      }>
+      <View
+        style={[styles.soonMenuItem, { backgroundColor: theme.bgColor1.backgroundColor }]}
+        {...(!isEditable && {
+          onPress: () => {
+           editPageHandler();
+          }
+        })}
+      >
         <View style={[styles.round, { borderColor: theme.soonMenuItemRound?.borderColor || '#ccc' }]}></View>
         <View style={styles.details}>
           <Text style={[styles.fontHandler, styles.taskHeader, { color: theme.primaryText.color }]}>
@@ -65,12 +65,13 @@ const SoonMenuItem = ({ taskName, taskDescription, taskTime, taskPriority, isEdi
           </Text>
         </View>
         <View style={styles.priorityContainer}>
-          {isEditable && ((<TouchableOpacity
-            style={[styles.edit, { zIndex: isEnabled ? 0 : 2, backgroundColor: theme.interactItem?.backgroundColor }]}
-            onPress={editPageHandler}
-          >
-            <DynamicIcon name={isEnabled ? "pencil-alt" : "read-more"} size={18} color="#fff" />
-          </TouchableOpacity>)
+          {isEditable && ((
+            <TouchableOpacity
+              style={[styles.edit, { zIndex: isEnabled ? 0 : 2, backgroundColor: theme.interactItem?.backgroundColor }]}
+              onPress={editPageHandler}
+            >
+              <DynamicIcon name={isEnabled ? "pencil-alt" : "read-more"} size={18} color="#fff" />
+            </TouchableOpacity>)
           )}
           <View style={[styles.priority, { backgroundColor: activeColor }]}>
             <Text style={[styles.fontHandler, {
@@ -84,7 +85,7 @@ const SoonMenuItem = ({ taskName, taskDescription, taskTime, taskPriority, isEdi
             ]}>{activeHeader}</Text>
           </View>
         </View>
-      </DynamicMenuItem>
+      </View>
       {
         !isEnabled && (
           <View

@@ -45,12 +45,12 @@ const styles = StyleSheet.create({
         display: "flex",
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'rgba(0, 0, 0, 0.35)', // Saydam siyah arka plan
+        backgroundColor: 'rgba(0, 0, 0, 0.35)', 
     },
     animation: {
         width: 200,
         height: 200,
-        alignSelf: 'center', // Kendini merkeze hizala
+        alignSelf: 'center', 
     },
 
 });

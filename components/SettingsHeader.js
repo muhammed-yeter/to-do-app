@@ -23,7 +23,6 @@ export default function SettingsHeader({ getBackTo, header, edit, selectedDate, 
             if (Array.isArray(tasksList[selectedDate])) {
                 tasksList[selectedDate].splice(taskIndex, 1);
 
-                // Index'leri düzelt
                 tasksList[selectedDate] = tasksList[selectedDate].map((task, idx) => ({
                     ...task,
                     taskIndex: idx,

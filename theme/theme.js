@@ -3,47 +3,47 @@ const theme = {
         theme: "light",
 
         primaryText: {
-            color: "#232946", // Koyu mor-gri yazı
+            color: "#232946",
         },
 
         secondaryText: {
-            color: "#7F7C99", // Daha soft gri-mor
+            color: "#7F7C99",
         },
 
         interactItem: {
-            backgroundColor: "#6255D3", // Ana renk
+            backgroundColor: "#6255D3",
         },
 
-        // Kart arka planı gibi alanlar için açık mor tonları
+    
         bgColor1: {
-            backgroundColor: "#ECEAFF", // Hafif morumsu açık gri
+            backgroundColor: "#ECEAFF",
         },
 
-        // Footer, navbar altı vb.
+    
         bgColor2: {
-            backgroundColor: "#D7D5F2", // Daha uyumlu, soft bir alt ton
+            backgroundColor: "#D7D5F2",
         },
 
-        // Genel sayfa arka planı
+    
         bgColor3: {
-            backgroundColor: "#F5F5FF", // Nötr-morumsu açık ton
+            backgroundColor: "#F5F5FF",
         },
 
-        // Pasif görev kartları
+    
         bgColor4: {
-            backgroundColor: "#D7D5F250" // Şeffaf pastel gri-mor
+            backgroundColor: "#D7D5F250"
         },
 
         soonMenuItemRound: {
-            borderColor: "#6255D3", // Ana renkten kenarlık
+            borderColor: "#6255D3",
         },
 
         calendarMonth: {
-            color: "#8B78E6", // Ana renge yakın ama daha yumuşak
+            color: "#8B78E6",
         },
 
         calendarDisabled: {
-            color: "#B3B3C6", // Yumuşak gri tonu
+            color: "#B3B3C6",
         },
 
         priorityColors: {
@@ -71,23 +71,23 @@ const theme = {
         },
 
         secondaryText: {
-            color: "#C6C3E0", // Mor-gri uyumlu ton
+            color: "#C6C3E0",
         },
 
         interactItem: {
-            backgroundColor: "#6255D3", // Ana renk
+            backgroundColor: "#6255D3",
         },
 
         bgColor1: {
-            backgroundColor: "#2D2B3F", // Hafif morumsu koyu gri
+            backgroundColor: "#2D2B3F",
         },
 
         bgColor2: {
-            backgroundColor: "#1E1C2B", // Footer altı gibi
+            backgroundColor: "#1E1C2B",
         },
 
         bgColor3: {
-            backgroundColor: "#14121F", // En karanlık arka plan
+            backgroundColor: "#14121F",
         },
 
         bgColor4: {
@@ -95,11 +95,11 @@ const theme = {
         },
 
         soonMenuItemRound: {
-            borderColor: "#8A80C7", // Açık morumsu kenarlık
+            borderColor: "#8A80C7",
         },
 
         calendarMonth: {
-            color: "#CFCBFF", // Parlak ama göz yormayan açık mor
+            color: "#CFCBFF",
         },
 
         calendarDisabled: {
@@ -114,7 +114,7 @@ const theme = {
             },
             important: {
                 backgroundColor: "#FFD36B",
-                textColor: "#EB5757" // Mor temayla uyumlu koyu yazı
+                textColor: "#232946"
             },
             primary: {
                 backgroundColor: "#FF7676",

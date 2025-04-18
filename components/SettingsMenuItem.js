@@ -51,7 +51,6 @@ export default function SettingsMenuItem({ header, icon, dataController, locateT
                 "Uyarı !",
                 "Bu işlem tüm görev verilerinizi silecektir. Onaylıyor musunuz?",
                 [
-                  // The "Yes" button
                   {
                     text: "Evet",
                     onPress: () => {
@@ -62,8 +61,6 @@ export default function SettingsMenuItem({ header, icon, dataController, locateT
                       router.push({ pathname: locateTo, params: { taskObject: JSON.stringify("") } });
                     },
                   },
-                  // The "No" button
-                  // Does nothing but dismiss the dialog when tapped
                   {
                     text: "Hayır",
                   },

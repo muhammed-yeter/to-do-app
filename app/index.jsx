@@ -29,7 +29,7 @@ const HomePage = () => {
 
     const isFocused = useIsFocused();
     const theme = useContext(themeContext);
-    const currentDate = new Date().toLocaleDateString('en-CA'); // YYYY-AA-GG
+    const currentDate = new Date().toLocaleDateString('en-CA');
 
     const [selectedDate] = useState(currentDate);
     const [welcomeText, setWelcomeText] = useState("Merhaba");
@@ -60,16 +60,16 @@ const HomePage = () => {
     }
 
     const filterSoonTasks = async () => {
-        const now = new Date(); // Şu anki tarih ve saat
-        const loadedTasks = await getTaskData(selectedDate); // Görevleri yükle
+        const now = new Date();
+        const loadedTasks = await getTaskData(selectedDate);
 
-        // Geçmiş görevleri filtrele
+       
         const filteredTasks = loadedTasks.filter(task => {
             const taskDateTime = new Date(`${task.taskDate}T${task.taskTime}`);
-            return taskDateTime > now; // Geçmiş görevleri hariç tut
+            return taskDateTime > now;
         });
 
-        setTasks(filteredTasks); // Filtrelenmiş görevleri state'e aktar
+        setTasks(filteredTasks);
     };
     const orderTasks = (orderType) => {
         let sortedTasks = [...tasks];
@@ -92,7 +92,6 @@ const HomePage = () => {
         setTexts(tasks.length)
         setIsLoading(true);
         filterSoonTasks();
-        // Hoşgeldiniz metinlerini güncelle
         setIsLoading(false);
     }, [isFocused, selectedDate]);
 
@@ -100,10 +99,10 @@ const HomePage = () => {
     const emptyTaskList = require('../assets/images/empty-list.png');
     return (
         <View style={{ backgroundColor: theme.bgColor3.backgroundColor }}>
-             <NotificationListener
+            <NotificationListener
                 onReceived={async () => {
                     setIsLoading(true);
-                    await filterSoonTasks(); // Filtreleme işlemini tetikleyin
+                    await filterSoonTasks();
                     setIsLoading(false);
                 }}
             />
@@ -128,7 +127,7 @@ const HomePage = () => {
                                         hitSlop={{ top: 35, bottom: 35, left: 35, right: 35 }}
                                         onPress={async () => {
                                             setIsLoading(true);
-                                            await filterSoonTasks(); // Filtreleme işlemini tetikleyin
+                                            await filterSoonTasks();
                                             setIsLoading(false);
                                         }}
                                     >
@@ -144,8 +143,8 @@ const HomePage = () => {
                                         selectedValue={orderType}
                                         dropdownIconColor={theme.primaryText.color}
                                         onValueChange={(itemValue) => {
-                                            setOrderType(itemValue); // Seçimi güncelle
-                                            orderTasks(itemValue); // Görevleri sırala
+                                            setOrderType(itemValue);
+                                            orderTasks(itemValue);
                                         }}
                                     >
                                         <Picker.Item label="Zamanına Göre (Varsayılan)" value="byTime" />
@@ -157,20 +156,20 @@ const HomePage = () => {
                                 {tasks.length > 0 ? (
                                     tasks
                                         .filter(task => {
-                                            const now = new Date(); // Şu anki tarih ve saat
+                                            const now = new Date();
                                             const taskDateTime = new Date(`${task.taskDate}T${task.taskTime}`);
-                                            return taskDateTime > now; // Geçmiş görevleri filtrele
+                                            return taskDateTime > now;
                                         })
                                         .sort((taskX, taskY) => {
                                             if (orderType === "byPriority") {
-                                                // Öncelik sırasına göre sıralama
+                                               
                                                 const priorityOrder = ["primary", "important", "routine"];
                                                 return (
                                                     priorityOrder.indexOf(taskX.taskPriority) -
                                                     priorityOrder.indexOf(taskY.taskPriority)
                                                 );
                                             } else if (orderType === "byTime") {
-                                                // Zaman sırasına göre sıralama
+                                               
                                                 const x = new Date(`${taskX.taskDate}T${taskX.taskTime}`);
                                                 const y = new Date(`${taskY.taskDate}T${taskY.taskTime}`);
                                                 return x - y;
@@ -188,6 +187,7 @@ const HomePage = () => {
                                                 taskTime={task.taskTime}
                                                 taskPriority={task.taskPriority}
                                             />
+
                                         ))
                                 ) : (
                                     <View style={styles.emptyTasksContainer}>
@@ -215,7 +215,6 @@ const HomePage = () => {
     );
 };
 
-// Stil Ayarları
 const styles = StyleSheet.create({
     altContainer: {
         paddingHorizontal: wp('5%'),

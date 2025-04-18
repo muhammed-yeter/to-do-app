@@ -49,8 +49,7 @@ const TabBar = ({ state, descriptors, navigation }) => {
                             target: route.key,
                             canPreventDefault: true,
                         });
-
-                        // Yönlendirme
+                        
                         if (!isFocused && !event.defaultPrevented) {
                             navigation.navigate(route.name, route.params);
                         }
